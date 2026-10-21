@@ -510,6 +510,9 @@ html.motion .jitem__content { height: 0; }
 
 /* ───────── Footer ───────── */
 .footer { padding: 12px 0; }
+/* The card runs edge to edge (12px inset, like the header pill) so it stays attached to the full-bleed sections above; its content keeps the page width */
+.footer > .container { max-width: none; width: 100%; padding: 0 12px; }
+.footer__wrapper > * { width: 100%; max-width: calc(var(--ff-container) - 80px); margin-inline: auto; }
 .footer__wrapper { background: var(--card-bg); padding: 24px 24px 30px; border-radius: var(--card-radius); display: flex; flex-direction: column; gap: 12px; }
 .footer__title { text-align: center; font: var(--ff-weight-bold) 12px / 1.455 var(--ff-font-sans); letter-spacing: 0.05em; text-transform: uppercase; }
 .footer__title b { font: inherit; color: var(--color-text-label); }
