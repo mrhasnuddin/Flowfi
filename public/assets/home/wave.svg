@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2268" height="1056" viewBox="0 0 2268 1056">
+<defs><filter id="b" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="34"/></filter><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#17181C" stop-opacity="0"/><stop offset=".6" stop-color="#17181C"/></linearGradient></defs>
+<g filter="url(#b)"><path d="M-866 1056C-178 497 446 40 1134 40C1822 40 2446 548 3322 1116L3322 1400L-866 1400Z" fill="#F2C94C"/><path d="M-706 1056C-74 541 502 120 1134 120C1766 120 2342 588 3146 1116L3146 1400L-706 1400Z" fill="#F7D774"/><path d="M-530 1056C42 613 562 250 1134 250C1706 250 2226 653 2954 1116L2954 1400L-530 1400Z" fill="#B9A9FF"/><path d="M-370 1056C147 679 617 370 1134 370C1651 370 2121 713 2779 1116L2779 1400L-370 1400Z" fill="#7B5CFA"/><path d="M-242 1056C231 734 661 470 1134 470C1607 470 2037 763 2639 1116L2639 1400L-242 1400Z" fill="#4426A8"/><path d="M-146 1056C294 800 694 590 1134 590C1574 590 1974 823 2534 1116L2534 1400L-146 1400Z" fill="#17181C"/></g>
+<rect y="720" width="2268" height="336" fill="url(#fade)"/>
+</svg>

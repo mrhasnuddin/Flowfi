@@ -1,0 +1,141 @@
+/* FlowFi design tokens. Imported by src/main.js; docs/revamp/03-design-system.md explains the roles.
+   Three tiers: 1 primitives (--ff-*)  ->  2 semantic (--color-*, --type-*)  ->  3 component (--btn-*, --nav-*).
+   Components read tier 2 or 3 only. The type scale and spacing replicate taiko.xyz; colours are FlowFi's guideline colours. */
+
+:root {
+  /* ───────── 1. PRIMITIVES ───────── */
+
+  /* Neutral. 0-300, 500 and 900 are from the brand guideline; 350, 400, 600, 950 are additions for muted text, control borders, secondary text and the ink surface. */
+  --ff-n-0: #FFFFFF;   --ff-n-25: #F8F9FB;  --ff-n-50: #F2F3F6;  --ff-n-100: #E6E8EE; --ff-n-200: #DDE0E8;
+  --ff-n-300: #C8CCD4; --ff-n-350: #9AA0AA; --ff-n-400: #8A8F98; --ff-n-500: #6B6F76; --ff-n-600: #5A5E66;
+  --ff-n-900: #2E2F33; --ff-n-950: #17181C;
+
+  /* Purple. 300 = guideline lavender, 500 = guideline FlowFi purple. 600 is the small-text and button purple (5.8:1 with white); 700-800 are hover and active steps. */
+  --ff-purple-50: #F5F2FF;  --ff-purple-100: #ECE6FF; --ff-purple-200: #D9CFFF; --ff-purple-300: #B9A9FF; --ff-purple-400: #9A82FC;
+  --ff-purple-500: #7B5CFA; --ff-purple-600: #6842F0; --ff-purple-700: #5733D4; --ff-purple-800: #4426A8; --ff-purple-900: #2F1B75;
+
+  /* Treasury gold (guideline). Graphics and value objects only, never text on white. */
+  --ff-gold-50: #FFF9E6; --ff-gold-300: #F7E08F; --ff-gold-500: #F2C94C; --ff-gold-700: #8A6A00;
+
+  /* The logo's own orange, purple and cyan live in the logo files only. They are not tokens (D3). */
+  --ff-green-300: #62D8A6; --ff-green-50: #E6F6EE; --ff-green-700: #16704A;
+  --ff-red-50: #FDECEA;   --ff-red-700: #C2362F;
+
+  /* Type. Clash Display for display sizes, Public Sans for everything else (the taiko.xyz pairing). */
+  --ff-font-display: "Clash Display", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --ff-font-sans: "Public Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --ff-weight-regular: 400; --ff-weight-medium: 500; --ff-weight-semibold: 600; --ff-weight-bold: 700;
+
+  /* Space, 8pt with 4pt half-steps */
+  --ff-s-0: 0; --ff-s-1: 4px; --ff-s-2: 8px; --ff-s-3: 12px; --ff-s-4: 16px; --ff-s-5: 20px; --ff-s-6: 24px; --ff-s-8: 32px;
+  --ff-s-10: 40px; --ff-s-12: 48px; --ff-s-16: 64px; --ff-s-20: 80px; --ff-s-24: 96px; --ff-s-32: 128px; --ff-s-40: 160px;
+
+  --ff-r-sm: 8px; --ff-r-md: 12px; --ff-r-lg: 20px; --ff-r-xl: 25px; --ff-r-pill: 100px;
+
+  /* Motion. No overshoot curves exist on purpose (brand: no bounce, elastic, overshoot). */
+  --ff-dur-instant: 100ms; --ff-dur-fast: 200ms; --ff-dur-base: 300ms; --ff-dur-slow: 400ms;
+  --ff-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ff-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --ff-z-raised: 10; --ff-z-rail: 50; --ff-z-menu: 300; --ff-z-nav: 301; --ff-z-modal: 500;
+
+  --ff-container: 1550px;
+  --ff-grid-cell: 48px;
+
+  /* ───────── 2. SEMANTIC (light, default) ───────── */
+  --color-bg-canvas: var(--ff-n-25);       /* body, behind the footer card */
+  --color-bg-page: var(--ff-n-0);          /* the home page sections */
+  --color-bg-subtle: var(--ff-n-50);
+  --color-bg-surface: var(--ff-n-0);
+  --color-bg-brand-subtle: var(--ff-purple-50);
+
+  --color-text-primary: var(--ff-n-900);
+  --color-text-secondary: var(--ff-n-600);
+  --color-text-tertiary: var(--ff-n-500);
+  --color-text-brand: var(--ff-purple-500);   /* 4.19:1 on canvas: display sizes and graphics only */
+  --color-text-label: var(--ff-purple-600);   /* small uppercase labels and outline buttons: 5.5:1 on canvas */
+  --color-text-on-brand: var(--ff-n-0);
+  --color-text-treasury: var(--ff-gold-700);
+  --color-link-underline: var(--ff-purple-500);
+
+  --color-border-subtle: var(--ff-n-100);
+  --color-border-default: var(--ff-n-200);
+  --color-border-control: var(--ff-n-400);   /* anything that must be seen to be used: 3:1 */
+  --color-border-brand: var(--ff-purple-600);
+  --color-grid-line: color-mix(in srgb, var(--ff-n-900) 12%, transparent);
+  --color-grid-dot: color-mix(in srgb, var(--ff-n-900) 10%, transparent);
+
+  --color-action-primary-bg: var(--ff-purple-600);   /* white 16px/600 label: 5.8:1 */
+  --color-action-primary-bg-hover: var(--ff-purple-700);
+  --color-action-primary-bg-active: var(--ff-purple-800);
+  --color-action-primary-fg: var(--ff-n-0);
+  --color-action-outline-border: var(--ff-purple-600);
+  --color-action-outline-fg: var(--ff-purple-600);
+  --color-action-outline-bg-hover: var(--ff-purple-50);
+  --color-focus-ring: var(--ff-purple-600);
+
+  /* Domain meaning. domain-* = large decorative fills; domain-*-mark = small marks that carry meaning (3:1). */
+  --color-domain-governance: var(--ff-purple-500);
+  --color-domain-treasury: var(--ff-gold-500);
+  --color-domain-governance-mark: var(--ff-purple-500);
+  --color-domain-treasury-mark: var(--ff-gold-700);
+
+  --color-status-success-fg: var(--ff-green-700);  --color-status-success-bg: var(--ff-green-50);
+  --color-status-warning-fg: var(--ff-gold-700);   --color-status-warning-bg: var(--ff-gold-50);
+  --color-status-danger-fg: var(--ff-red-700);     --color-status-danger-bg: var(--ff-red-50);
+  --color-status-info-fg: var(--ff-purple-700);    --color-status-info-bg: var(--ff-purple-50);
+
+  /* Type roles (taiko.xyz scale): size / line-height / tracking. Section CSS steps the sizes down at Taiko's breakpoints. */
+  --type-display: 85px;   --type-display-lh: 0.8;  --type-display-ls: -0.02em;   /* hero, scaling screens, explore */
+  --type-title: 70px;     --type-title-lh: 0.9;    --type-title-ls: -0.02em;     /* about, roadmap, governance, FAQ */
+  --type-h3: 36px;        --type-h3-lh: 1.1;       --type-h3-ls: -0.015em;
+  --type-body: 16px;      --type-body-lh: 1.255;   --type-body-ls: -0.01em;
+  --type-body-sm: 14px;
+  --type-label: 14px;     --type-label-lh: 1.2;    --type-label-ls: 0.04em;      /* uppercase, weight 600 */
+  --type-nav: 16px;       --type-nav-lh: 1.25;     --type-nav-ls: -0.02em;
+
+  /* ───────── 3. COMPONENT ───────── */
+  --btn-text-size: 16px;            /* 600 weight, white on purple-600 */
+  --btn-icon: 32px;                 /* white disc holding the arrow; button height = icon + 2 x 8 = 48 */
+  --btn-border: 1.8px;
+
+  --nav-height: 60px;
+  --nav-top: 20px;
+  --nav-bg: var(--color-bg-surface);
+  --nav-item-active: var(--ff-n-50);
+
+  --card-bg: var(--color-bg-surface);
+  --card-radius: var(--ff-r-xl);
+}
+
+/* Inverse band (roadmap). The same tokens flip; components are untouched. */
+[data-surface="ink"] {
+  --color-bg-canvas: var(--ff-n-950);
+  --color-bg-page: var(--ff-n-950);
+  --color-bg-subtle: color-mix(in srgb, var(--ff-n-0) 6%, var(--ff-n-950));
+  --color-bg-surface: color-mix(in srgb, var(--ff-n-0) 8%, var(--ff-n-950));
+  --color-text-primary: var(--ff-n-0);
+  --color-text-secondary: var(--ff-n-300);
+  --color-text-tertiary: var(--ff-n-350);
+  --color-text-brand: var(--ff-purple-300);
+  --color-text-label: var(--ff-n-0);
+  --color-border-subtle: color-mix(in srgb, var(--ff-n-0) 12%, transparent);
+  --color-border-default: color-mix(in srgb, var(--ff-n-0) 20%, transparent);
+  --color-grid-line: color-mix(in srgb, var(--ff-n-0) 8%, transparent);
+  --color-domain-treasury-mark: var(--ff-gold-500);
+  --color-status-success-fg: var(--ff-green-300);
+  --color-status-success-bg: color-mix(in srgb, var(--ff-green-300) 14%, transparent);
+  --color-status-warning-fg: var(--ff-gold-500);
+  --color-status-warning-bg: color-mix(in srgb, var(--ff-gold-500) 14%, transparent);
+}
+
+/* CJK: Latin tracking and 0.8 leading crush Han characters. */
+:lang(zh) {
+  --type-display-lh: 1.08; --type-title-lh: 1.12;
+  --type-display-ls: 0; --type-title-ls: 0; --type-h3-ls: 0; --type-nav-ls: 0;
+  --type-label-ls: 0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --ff-dur-fast: 0ms; --ff-dur-base: 0ms; --ff-dur-slow: 0ms; }
+}

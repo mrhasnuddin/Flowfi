@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  /* FlowFi Official Brand Palette */
+  --bg-primary: #FAF9FB;
+  --bg-secondary: #F3F1F8;
+  --bg-card: #FFFFFF;
+  --surface-border: #E6E8EE;
+  --surface-border-hover: rgba(123, 92, 250, 0.4);
+
+  /* FlowFi Brand Colors */
+  --ff-purple: #7B5CFA;
+  --ff-purple-dark: #6343ED;
+  --ff-lavender: #B9A9FF;
+  --ff-lavender-tint: #F5F2FF;
+  --ff-gold: #F2C94C;
+  --ff-gold-dark: #D4A72C;
+  --ff-gold-tint: #FFF9E6;
+
+  /* Typography Colors */
+  --text-dark: #2E2F33;
+  --text-mid: #5A5D64;
+  --text-muted: #8E929B;
+  --text-white: #FFFFFF;
+
+  /* Elevations */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 20px -2px rgba(123, 92, 250, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 12px 36px -4px rgba(123, 92, 250, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'IBM Plex Sans', -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  margin: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Hierarchy (better-typography) */
+.font-display {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.035em;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+  color: var(--text-dark);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+p {
+  text-wrap: pretty;
+  line-height: 1.6;
+  color: var(--text-mid);
+}
+
+/* Header & Nav */
+.taiko-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(250, 249, 251, 0.88);
+  border-bottom: 1px solid rgba(230, 232, 238, 0.7);
+  transition: all 0.2s ease;
+}
+
+.taiko-nav-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  position: relative;
+  padding: 6px 2px;
+}
+
+.taiko-nav-link:hover {
+  color: var(--ff-purple);
+}
+
+/* Kinetic Barcode Glyph */
+.kinetic-barcode-glyph {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5px;
+  height: 20px;
+  padding: 0 4px;
+}
+
+.kinetic-barcode-glyph span {
+  display: block;
+  width: 2.5px;
+  background: var(--ff-purple);
+  border-radius: 9999px;
+  animation: barcodePulse 2s ease-in-out infinite alternate;
+}
+
+.kinetic-barcode-glyph span:nth-child(1) { height: 12px; animation-delay: 0.1s; }
+.kinetic-barcode-glyph span:nth-child(2) { height: 18px; animation-delay: 0.3s; }
+.kinetic-barcode-glyph span:nth-child(3) { height: 10px; animation-delay: 0.5s; }
+.kinetic-barcode-glyph span:nth-child(4) { height: 16px; animation-delay: 0.2s; }
+.kinetic-barcode-glyph span:nth-child(5) { height: 8px;  animation-delay: 0.4s; }
+
+@keyframes barcodePulse {
+  0% { transform: scaleY(0.7); opacity: 0.6; }
+  100% { transform: scaleY(1.2); opacity: 1; }
+}
+
+/* ==========================================================================
+   Taiko-Style Signature Double-Text Roll-Up Button System (FlowFi Branded)
+   ========================================================================== */
+
+.tk-btn {
+  display: inline-flex;
+  align-items: center;
+  min-width: 48px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: var(--ff-purple);
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.2s ease;
+  box-shadow: 0 4px 14px rgba(123, 92, 250, 0.25);
+  border: 1.8px solid transparent;
+  user-select: none;
+}
+
+.tk-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(123, 92, 250, 0.35);
+  background: var(--ff-purple-dark);
+}
+
+.tk-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Text Container with Double-Text Slot Machine Roll-Up */
+.tk-btn-text {
+  flex-shrink: 0;
+  display: block;
+  padding-left: 22px;
+  padding-right: 6px;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tk-btn-text span {
+  display: block;
+  line-height: 20px;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tk-btn:hover .tk-btn-text span {
+  transform: translateY(-100%);
+}
+
+/* Circular Icon Housing Double Sliding Arrow */
+.tk-btn-icon {
+  margin: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.tk-btn-icon > span {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+}
+
+.tk-btn:hover .tk-btn-icon > span {
+  transform: translateX(0);
+}
+
+.tk-btn-icon svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  stroke: var(--ff-purple);
+}
+
+/* --- Purple Outlined Variant --- */
+.tk-btn-outlined {
+  background: transparent;
+  border: 1.8px solid var(--ff-purple);
+  box-shadow: none;
+}
+
+.tk-btn-outlined .tk-btn-text {
+  color: var(--ff-purple);
+}
+
+.tk-btn-outlined .tk-btn-icon {
+  background: var(--ff-purple);
+}
+
+.tk-btn-outlined .tk-btn-icon svg {
+  stroke: #FFFFFF;
+}
+
+.tk-btn-outlined:hover {
+  background: var(--ff-lavender-tint);
+  border-color: var(--ff-purple);
+  box-shadow: 0 4px 14px rgba(123, 92, 250, 0.15);
+}
+
+/* --- Gold Outlined Variant --- */
+.tk-btn-gold {
+  background: transparent;
+  border: 1.8px solid var(--ff-gold);
+  box-shadow: none;
+}
+
+.tk-btn-gold .tk-btn-text {
+  color: var(--text-dark);
+}
+
+.tk-btn-gold .tk-btn-icon {
+  background: var(--ff-gold);
+}
+
+.tk-btn-gold .tk-btn-icon svg {
+  stroke: var(--text-dark);
+}
+
+.tk-btn-gold:hover {
+  background: var(--ff-gold-tint);
+  border-color: var(--ff-gold-dark);
+  box-shadow: 0 4px 14px rgba(242, 201, 76, 0.25);
+}
+
+/* ==========================================================================
+   Taiko-Style Triad & Bento Cards (FlowFi Branded)
+   ========================================================================== */
+
+.taiko-card {
+  background: var(--bg-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 2rem;
+  padding: 2.25rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.taiko-card:hover {
+  border-color: var(--surface-border-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+/* Matrix Canvas Overlay */
+.matrix-canvas-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* 3D Floating Asset Perspective Animation */
+.hero-3d-wrapper {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.hero-3d-img {
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  filter: drop-shadow(0 20px 40px rgba(123, 92, 250, 0.18));
+}
+
+@keyframes levitate {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-levitate {
+  animation: levitate 5s ease-in-out infinite;
+}
+
+/* Range Slider Styling for Interactive Yield Simulator */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #EFECE6;
+  border-radius: 9999px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--ff-purple);
+  cursor: pointer;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 4px 12px rgba(123, 92, 250, 0.4);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+/* Scroll Entrance Observer */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

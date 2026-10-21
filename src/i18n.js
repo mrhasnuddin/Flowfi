@@ -1,233 +1,300 @@
+// Copy deck. English is the original FlowFi copy, lightly polished (docs/revamp/06-copy-deck.md), laid out in taiko.xyz's section structure.
 export const translations = {
     en: {
-        "nav.infra": "Infrastructure",
-        "nav.arch": "Architecture",
-        "nav.econ": "Economics",
-        "nav.roadmap": "Roadmap",
-        "nav.launch": "Launch App",
-        "nav.lang": "EN",
+        'meta.title': 'FlowFi | Decentralized Infrastructure for On-Chain Capital',
+        'meta.desc': 'Decentralized infrastructure for the institutional management of on-chain capital. A Governance Treasury, an Investor Treasury and a 1 Billion FF cap.',
 
-        "hero.title1": "FlowFi is Capital,",
-        "hero.title2": "Governed.",
-        "hero.btn.treasury": "Establish Treasury",
-        "hero.btn.litepaper": "Read Whitepaper",
-        "hero.btn.gov": "View Governance",
+        'nav.about': 'About',
+        'nav.economics': 'Economics',
+        'nav.governance': 'Governance',
+        'nav.resources': 'Resources',
+        'nav.vaults': 'Consensus Vaults',
+        'nav.aboutFlowfi': 'About FlowFi',
+        'nav.roadmap': 'Roadmap',
+        'nav.tokenomics': 'Tokenomics',
+        'nav.blackhole': 'Black Hole Launch',
+        'nav.grants': 'Grants Program',
+        'nav.dao': 'DAO Portal',
+        'nav.forum': 'Discussion Forum',
+        'nav.snapshot': 'Snapshot Voting',
+        'nav.whitepaper': 'Whitepaper',
+        'nav.audits': 'Security Audits',
+        'nav.faq': 'FAQ',
+        'nav.cta': 'Read Whitepaper',
+        'nav.menu': 'Menu',
+        'nav.sections': 'Page sections',
 
-        "side.protocol": "Protocol",
-        "side.infra": "Infrastructure",
-        "side.arch": "Architecture",
-        "side.econ": "Economics",
-        "side.roadmap": "Roadmap",
+        'hero.title': 'FlowFi is Capital, Governed.',
+        'hero.cta1': 'Read Whitepaper',
+        'hero.cta2': 'View Architecture',
+        'hero.cta3': 'View Governance',
 
-        "problem.title1": "Web3 capital<br>has scaled.",
-        "problem.title2": "Governance hasn't.",
-        "problem.desc": "Passive treasuries suffer from <strong class=\"text-[#2E2F33]\">non-productive stagnation</strong>. Millions in community assets sit dormant because the tools for audited deployment don't exist.",
-        "problem.asset": "[Asset: Friction_Diagram_Isometric]",
+        'scaling.label': 'Decentralized capital infrastructure',
+        'scaling.title1': 'FlowFi',
+        'scaling.title2': 'is governed',
+        'gov.title': 'Governance Treasury',
+        'gov.cta': 'Explore Governance',
+        'inv.title': 'Investor Treasury',
+        'inv.cta': 'View Treasury',
+        'tok.title': 'FF Token',
+        'tok.cta': 'Read Tokenomics',
 
-        "arch.gov.label": "[ Governance ]",
-        "arch.inv.label": "[ Investor ]",
-        "arch.gov.title": "Rule &<br>Consensus.",
-        "arch.gov.desc": "The Governance Treasury manages protocol parameters, voting weights, and total FF consensus mechanisms.",
-        "arch.gov.total": "Total Locked",
-        "arch.gov.explore": "Explore Governance",
+        'explore.tag': 'Dual-vault architecture',
+        'explore.title1': 'Consensus',
+        'explore.title2': 'Vaults',
+        'explore.text': 'The Governance Treasury manages protocol parameters, voting weights and the FF consensus mechanism. The Investor Treasury grows capital through audited deployment and incubation.',
+        'explore.cta': 'Read Whitepaper',
 
-        "arch.inv.title": "Execution &<br>Growth.",
-        "arch.inv.desc": "The Investor Treasury drives aggressive, audited growth through capital deployment and incubation.",
-        "arch.inv.seed": "Seed Capital",
-        "arch.inv.view": "View Portfolio",
+        'econ.title': 'The Black Hole Launch.',
+        'econ.desc': 'A deflationary tokenomics framework built for sustainable value capture and ecosystem growth.',
+        'econ.c1.title': 'Capped Supply',
+        'econ.c1.desc': 'Capped at 1 Billion FF. No inflation, no minting.',
+        'econ.c2.title': 'Fair Launch Distribution',
+        'econ.c2.desc': '100% transparent. The Black Hole Launch gives everyone equal access, with no VC pre-allocations.',
+        'econ.c3.title': 'Ecosystem First',
+        'econ.c3.desc': '50% goes to ecosystem incentives and builder grants.',
+        'econ.c4.title': 'Deep Collateral',
+        'econ.c4.desc': 'An over-collateralized ratio keeps the protocol solvent and stable.',
 
-        "econ.title": "The Black Hole<br>Launch.",
-        "econ.desc": "A deflationary, high-impact tokenomics framework designed for sustainable value capture and ecosystem growth.",
-        "econ.c1.title": "Capped<br>Supply",
-        "econ.c1.desc": "Strictly capped at 1 Billion FF. No inflation, no minting. A finite resource for the infinite ecosystem.",
-        "econ.c2.title": "Fair Launch<br>Distribution",
-        "econ.c2.desc": "100% Transparency. The Black Hole Launch ensures equal opportunity participation with no VC pre-allocations.",
-        "econ.c3.title": "Ecosystem<br>First",
-        "econ.c3.desc": "50% allocated fundamentally to ecosystem incentives & builder grants.",
-        "econ.c4.title": "Deep<br>Collateral",
-        "econ.c4.desc": "Over-collateralized ratio ensuring protocol solvency and stability.",
+        'about.label': 'About FlowFi',
+        'about.title': "Web3 capital has scaled. Governance hasn't.",
+        'about.text': "Passive treasuries stagnate. Millions in community assets sit dormant because the tools for audited deployment don't exist.",
 
-        "road.subtitle": "Development Path",
-        "road.title1": "Long-term",
-        "road.title2": "Infrastructure.",
-        "road.desc": "FlowFi's roadmap is not about trends. It is about the systemic transition of capital to the ENI Mainnet.",
-        "road.read": "Read Whitepaper",
+        'road.label': 'Roadmap',
+        'road.title': 'Long-term Infrastructure.',
+        'road.p1': 'Phase 01',
+        'road.p1.title': 'Genesis Governance',
+        'road.p1.desc': 'Completes the Black Hole Launch and sets up the dual-vault consensus architecture.',
+        'road.p1.sub': 'System Launch',
+        'road.p1.status': 'Active',
+        'road.p2': 'Phase 02',
+        'road.p2.title': 'Backflow Optimization',
+        'road.p2.desc': 'Adds automated revenue routing and multi-strategy investor treasury pools.',
+        'road.p2.sub': 'Expansion',
+        'road.p2.status': 'In Progress',
+        'road.p3': 'Phase 03',
+        'road.p3.title': 'Enterprise Scaling',
+        'road.p3.desc': 'Standardized vault templates for moving Web2 institutions to the ENI Mainnet.',
+        'road.p3.sub': 'Global Tier',
+        'road.p3.status': 'Planned',
 
-        "road.p1.sub": "Phase 01: System Launch",
-        "road.p1.title": "Genesis Governance",
-        "road.p1.desc": "Black Hole Launch completion and establishment of the dual-vault consensus architecture.",
+        'gov.label': 'Governance',
+        'gov.heading': 'Are you a governance architect?',
+        'gov.text': 'A yield-seeking strategist? An automated treasury? FlowFi is the consensus layer for capital. Explore the dual-vault architecture, take part in governance and automate your yield.',
 
-        "road.p2.sub": "Phase 02: Expansion",
-        "road.p2.title": "Backflow Optimization",
-        "road.p2.desc": "Integration of automated revenue routing and multi-strategy investor treasury pools.",
+        'faq.title': 'Frequently asked questions',
+        'faq.q1': 'What is FlowFi?',
+        'faq.a1': 'FlowFi is decentralized infrastructure for the institutional management of on-chain capital. It runs two treasuries: a Governance Treasury for rules and consensus, and an Investor Treasury for audited capital deployment.',
+        'faq.q2': 'What does the Governance Treasury do?',
+        'faq.a2': 'It manages protocol parameters, voting weights and the FF consensus mechanism. 1.2B FF is locked in it.',
+        'faq.q3': 'What does the Investor Treasury do?',
+        'faq.a3': 'It grows capital through audited deployment and incubation. It holds $10M+ in seed capital.',
+        'faq.q4': 'How many FF tokens will exist?',
+        'faq.a4': 'FF is capped at 1 Billion. There is no inflation and no minting.',
+        'faq.q5': 'What is the Black Hole Launch?',
+        'faq.a5': "The Black Hole Launch is FlowFi's fair launch distribution. It is 100% transparent, has no VC pre-allocations, and sends 50% to ecosystem incentives and builder grants.",
+        'faq.q6': 'How does FlowFi stay solvent?',
+        'faq.a6': 'An over-collateralized ratio keeps the protocol solvent and stable.',
+        'faq.q7': 'Is FlowFi audited?',
+        'faq.a7': 'Yes. FlowFi is Certik audited.',
+        'faq.q8': "What is on FlowFi's roadmap?",
+        'faq.a8': 'Three phases: System Launch (Genesis Governance, active), Expansion (Backflow Optimization, in progress) and Global Tier (Enterprise Scaling, planned). Together they move capital to the ENI Mainnet.',
+        'faq.q9': 'Where can I read more?',
+        'faq.a9': 'Read the whitepaper:',
 
-        "road.p3.sub": "Phase 03: Global Tier",
-        "road.p3.title": "Enterprise Scaling",
-        "road.p3.desc": "Standardized vault templates for Web2 institutional migration to ENI Mainnet.",
-
-        "news.tag": "The Institutional Standard",
-        "news.title": "Are you a governance architect?<br><span class=\"text-[#7B5CFA]\">A yield-seeking strategist?</span><br>An automated treasury?",
-        "news.desc": "FlowFi is the consensus layer for capital. Explore the dual-vault architecture, participate in governance, and automate your yield.",
-        "news.placeholder": "Institutional email address",
-        "news.btn": "Subscribe",
-
-        "footer.desc": "Decentralized infrastructure for the institutional management of on-chain capital.",
-        "footer.col1": "Architecture",
-        "footer.l1.1": "Consensus Vaults",
-        "footer.l1.2": "Investor Treasury",
-        "footer.l1.3": "Core Features",
-
-        "footer.col2": "Economics",
-        "footer.l2.1": "Tokenomics",
-        "footer.l2.2": "Black Hole Launch",
-        "footer.l2.3": "Grants Program",
-
-        "footer.col3": "Governance",
-        "footer.l3.1": "DAO Portal",
-        "footer.l3.2": "Discussion Forum",
-        "footer.l3.3": "Snapshot Voting",
-
-        "footer.col4": "Legal",
-        "footer.l4.1": "Terms of Service",
-        "footer.l4.2": "Privacy Policy",
-        "footer.l4.3": "Security Audits",
-
-        "footer.copy": "© 2026 FlowFi Foundation. All rights reserved.",
-        "footer.status": "Systems Operational",
-        "footer.audit": "Certik Audited",
-        "footer.partner": "Bitget Wallet Partner"
+        'footer.title1': 'Join the FlowFi',
+        'footer.title2': 'community',
+        'footer.tile.whitepaper': 'whitepaper',
+        'footer.tile.dao': 'dao portal',
+        'footer.tile.forum': 'forum',
+        'footer.tile.snapshot': 'snapshot',
+        'footer.desc': 'Decentralized infrastructure for the institutional management of on-chain capital.',
+        'footer.col1': 'Architecture',
+        'footer.l1.1': 'Consensus Vaults',
+        'footer.l1.2': 'Investor Treasury',
+        'footer.col2': 'Economics',
+        'footer.l2.1': 'Tokenomics',
+        'footer.l2.2': 'Black Hole Launch',
+        'footer.l2.3': 'Grants Program',
+        'footer.col3': 'Governance',
+        'footer.l3.1': 'DAO Portal',
+        'footer.l3.2': 'Discussion Forum',
+        'footer.l3.3': 'Snapshot Voting',
+        'footer.col4': 'Legal',
+        'footer.l4.1': 'Terms of Service',
+        'footer.l4.2': 'Privacy Policy',
+        'footer.l4.3': 'Security Audits',
+        'footer.copy': '© 2026 FlowFi Foundation. All rights reserved.',
+        'footer.audit': 'Certik Audited',
+        'footer.partner': 'Bitget Wallet Partner',
+        'footer.partners': 'Ecosystem partners',
+        'common.soon': 'Soon'
     },
     cn: {
-        "nav.infra": "基础设施",
-        "nav.arch": "架构",
-        "nav.econ": "经济模型",
-        "nav.roadmap": "路线图",
-        "nav.launch": "启动应用",
-        "nav.lang": "CN",
+        'meta.title': 'FlowFi | 链上资本的去中心化基础设施',
+        'meta.desc': '用于链上资本机构管理的去中心化基础设施。治理国库、投资者国库，以及 10 亿 FF 的供应上限。',
 
-        "hero.title1": "FlowFi 是资本，",
-        "hero.title2": "亦是治理。",
-        "hero.btn.treasury": "建立国库",
-        "hero.btn.litepaper": "阅读白皮书",
-        "hero.btn.gov": "查看治理",
+        'nav.about': '关于',
+        'nav.economics': '经济模型',
+        'nav.governance': '治理',
+        'nav.resources': '资源',
+        'nav.vaults': '共识金库',
+        'nav.aboutFlowfi': '关于 FlowFi',
+        'nav.roadmap': '路线图',
+        'nav.tokenomics': '代币经济学',
+        'nav.blackhole': '黑洞启动',
+        'nav.grants': '资助计划',
+        'nav.dao': 'DAO 门户',
+        'nav.forum': '讨论论坛',
+        'nav.snapshot': 'Snapshot 投票',
+        'nav.whitepaper': '白皮书',
+        'nav.audits': '安全审计',
+        'nav.faq': '常见问题',
+        'nav.cta': '阅读白皮书',
+        'nav.menu': '菜单',
+        'nav.sections': '页面分区',
 
-        "side.protocol": "协议",
-        "side.infra": "基础设施",
-        "side.arch": "架构",
-        "side.econ": "经济模型",
-        "side.roadmap": "路线图",
+        'hero.title': 'FlowFi 是资本，\n亦是治理。',
+        'hero.cta1': '阅读白皮书',
+        'hero.cta2': '查看架构',
+        'hero.cta3': '查看治理',
 
-        "problem.title1": "Web3 资本<br>已规模化。",
-        "problem.title2": "治理尚未跟上。",
-        "problem.desc": "被动国库深受 <strong class=\"text-[#2E2F33]\">非生产性停滞</strong> 之苦。数百万社区资产因缺乏审计部署工具而处于休眠状态。",
-        "problem.asset": "[资产：摩擦图_等距]",
+        'scaling.label': '去中心化资本基础设施',
+        'scaling.title1': 'FlowFi',
+        'scaling.title2': '亦是治理',
+        'gov.title': '治理国库',
+        'gov.cta': '探索治理',
+        'inv.title': '投资者国库',
+        'inv.cta': '查看国库',
+        'tok.title': 'FF 代币',
+        'tok.cta': '阅读代币经济学',
 
-        "arch.gov.label": "[ 治理 ]",
-        "arch.inv.label": "[ 投资 ]",
-        "arch.gov.title": "规则与<br>共识。",
-        "arch.gov.desc": "治理国库管理协议参数、投票权重和所有 FF 共识机制。",
-        "arch.gov.total": "总锁定",
-        "arch.gov.explore": "探索治理",
+        'explore.tag': '双金库架构',
+        'explore.title1': '共识',
+        'explore.title2': '金库',
+        'explore.text': '治理国库管理协议参数、投票权重和 FF 共识机制。投资者国库通过经审计的部署和孵化实现资本增长。',
+        'explore.cta': '阅读白皮书',
 
-        "arch.inv.title": "执行与<br>增长。",
-        "arch.inv.desc": "投资国库通过资本部署和孵化推动积极、经审计的增长。",
-        "arch.inv.seed": "种子资本",
-        "arch.inv.view": "查看组合",
+        'econ.title': '黑洞启动。',
+        'econ.desc': '一套通缩型代币经济学框架，为可持续的价值捕获和生态增长而设计。',
+        'econ.c1.title': '供应上限',
+        'econ.c1.desc': '上限为 10 亿 FF。无通胀，无增发。',
+        'econ.c2.title': '公平启动分配',
+        'econ.c2.desc': '100% 透明。黑洞启动让每个人平等参与，无 VC 预分配。',
+        'econ.c3.title': '生态优先',
+        'econ.c3.desc': '50% 用于生态激励和建设者资助。',
+        'econ.c4.title': '深度抵押',
+        'econ.c4.desc': '超额抵押比率保障协议的偿付能力与稳定。',
 
-        "econ.title": "黑洞<br>启动。",
-        "econ.desc": "一种旨在实现可持续价值捕获和生态系统增长的通缩、高影响力代币经济学框架。",
-        "econ.c1.title": "供应<br>上限",
-        "econ.c1.desc": "严格限制在 10 亿 FF。无通胀，无铸造。无限生态系统的有限资源。",
-        "econ.c2.title": "公平启动<br>分配",
-        "econ.c2.desc": "100% 透明。黑洞启动确保平等参与机会，无 VC 预分配。",
-        "econ.c3.title": "生态<br>优先",
-        "econ.c3.desc": "50% 从根本上分配给生态系统激励和建设者资助。",
-        "econ.c4.title": "深度<br>抵押",
-        "econ.c4.desc": "超额抵押比率确保协议偿付能力和稳定性。",
+        'about.label': '关于 FlowFi',
+        'about.title': 'Web3 资本已规模化。\n治理尚未跟上。',
+        'about.text': '被动国库陷入停滞。数百万社区资产因缺乏经审计的部署工具而处于休眠状态。',
 
-        "road.subtitle": "发展路径",
-        "road.title1": "长期",
-        "road.title2": "基础设施。",
-        "road.desc": "FlowFi 的路线图无关趋势。它是关于资本向 ENI 主网的系统性迁移。",
-        "road.read": "阅读白皮书",
+        'road.label': '路线图',
+        'road.title': '长期基础设施。',
+        'road.p1': '第一阶段',
+        'road.p1.title': '创世治理',
+        'road.p1.desc': '完成黑洞启动，建立双金库共识架构。',
+        'road.p1.sub': '系统启动',
+        'road.p1.status': '已启动',
+        'road.p2': '第二阶段',
+        'road.p2.title': '回流优化',
+        'road.p2.desc': '加入自动化收益路由和多策略投资者国库池。',
+        'road.p2.sub': '扩张',
+        'road.p2.status': '进行中',
+        'road.p3': '第三阶段',
+        'road.p3.title': '企业级扩展',
+        'road.p3.desc': '为 Web2 机构迁移至 ENI 主网提供标准化金库模板。',
+        'road.p3.sub': '全球层级',
+        'road.p3.status': '计划中',
 
-        "road.p1.sub": "第一阶段：系统启动",
-        "road.p1.title": "创世治理",
-        "road.p1.desc": "黑洞启动完成及双金库共识架构的建立。",
+        'gov.label': '治理',
+        'gov.heading': '您是治理架构师？',
+        'gov.text': '寻求收益的策略师？还是自动化国库？FlowFi 是资本的共识层。探索双金库架构，参与治理，并让收益自动化。',
 
-        "road.p2.sub": "第二阶段：扩张",
-        "road.p2.title": "回流优化",
-        "road.p2.desc": "整合自动化收益路由和多策略投资者国库池。",
+        'faq.title': '常见问题',
+        'faq.q1': 'FlowFi 是什么？',
+        'faq.a1': 'FlowFi 是用于链上资本机构管理的去中心化基础设施。它运行两个国库：负责规则与共识的治理国库，以及负责经审计资本部署的投资者国库。',
+        'faq.q2': '治理国库的作用是什么？',
+        'faq.a2': '它管理协议参数、投票权重和 FF 共识机制，其中锁定了 1.2B FF。',
+        'faq.q3': '投资者国库的作用是什么？',
+        'faq.a3': '它通过经审计的部署和孵化实现资本增长，持有 $10M+ 种子资本。',
+        'faq.q4': 'FF 代币总量是多少？',
+        'faq.a4': 'FF 上限为 10 亿枚，无通胀，无增发。',
+        'faq.q5': '什么是黑洞启动？',
+        'faq.a5': '黑洞启动是 FlowFi 的公平启动分配方式：100% 透明，无 VC 预分配，50% 用于生态激励和建设者资助。',
+        'faq.q6': 'FlowFi 如何保持偿付能力？',
+        'faq.a6': '超额抵押比率保障协议的偿付能力与稳定。',
+        'faq.q7': 'FlowFi 经过审计吗？',
+        'faq.a7': '是的。FlowFi 已通过 Certik 审计。',
+        'faq.q8': 'FlowFi 的路线图是什么？',
+        'faq.a8': '共三个阶段：系统启动（创世治理，已启动）、扩张（回流优化，进行中）和全球层级（企业级扩展，计划中），共同将资本迁移到 ENI 主网。',
+        'faq.q9': '在哪里可以了解更多？',
+        'faq.a9': '阅读白皮书：',
 
-        "road.p3.sub": "第三阶段：全球层级",
-        "road.p3.title": "企业级扩展",
-        "road.p3.desc": "为 Web2 机构向 ENI 主网迁移提供标准化金库模板。",
-
-        "news.tag": "机构标准",
-        "news.title": "您是治理架构师？<br><span class=\"text-[#7B5CFA]\">寻求收益的策略师？</span><br>还是自动化国库？",
-        "news.desc": "FlowFi 即是资本的共识层。探索双金库架构，参与治理，并自动化您的收益。",
-        "news.placeholder": "机构电子邮箱地址",
-        "news.btn": "订阅",
-
-        "footer.desc": "用于链上资本机构管理的去中心化基础设施。",
-        "footer.col1": "架构",
-        "footer.l1.1": "共识金库",
-        "footer.l1.2": "投资者国库",
-        "footer.l1.3": "核心功能",
-
-        "footer.col2": "经济模型",
-        "footer.l2.1": "代币经济学",
-        "footer.l2.2": "黑洞启动",
-        "footer.l2.3": "资助计划",
-
-        "footer.col3": "治理",
-        "footer.l3.1": "DAO 门户",
-        "footer.l3.2": "讨论论坛",
-        "footer.l3.3": "Snapshot 投票",
-
-        "footer.col4": "法律",
-        "footer.l4.1": "服务条款",
-        "footer.l4.2": "隐私政策",
-        "footer.l4.3": "安全审计",
-
-        "footer.copy": "© 2026 FlowFi Foundation. 保留所有权利。",
-        "footer.status": "系统运行中",
-        "footer.audit": "Certik 审计",
-        "footer.partner": "Bitget 钱包合作伙伴"
+        'footer.title1': '加入 FlowFi',
+        'footer.title2': '社区',
+        'footer.tile.whitepaper': '白皮书',
+        'footer.tile.dao': 'DAO 门户',
+        'footer.tile.forum': '论坛',
+        'footer.tile.snapshot': 'Snapshot',
+        'footer.desc': '用于链上资本机构管理的去中心化基础设施。',
+        'footer.col1': '架构',
+        'footer.l1.1': '共识金库',
+        'footer.l1.2': '投资者国库',
+        'footer.col2': '经济模型',
+        'footer.l2.1': '代币经济学',
+        'footer.l2.2': '黑洞启动',
+        'footer.l2.3': '资助计划',
+        'footer.col3': '治理',
+        'footer.l3.1': 'DAO 门户',
+        'footer.l3.2': '讨论论坛',
+        'footer.l3.3': 'Snapshot 投票',
+        'footer.col4': '法律',
+        'footer.l4.1': '服务条款',
+        'footer.l4.2': '隐私政策',
+        'footer.l4.3': '安全审计',
+        'footer.copy': '© 2026 FlowFi Foundation. 保留所有权利。',
+        'footer.audit': 'Certik 审计',
+        'footer.partner': 'Bitget 钱包合作伙伴',
+        'footer.partners': '生态合作伙伴',
+        'common.soon': '即将上线'
     }
 };
 
-export function setupI18n() {
-    let currentLang = localStorage.getItem('flowfi_lang') || 'en';
+const STORE = 'flowfi_lang';
+const HTML_LANG = { en: 'en', cn: 'zh-CN' };
 
-    const updateContent = (lang) => {
-        const elements = document.querySelectorAll('[data-i18n]');
-        elements.forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[lang][key]) {
-                if (el.tagName === 'INPUT' && el.getAttribute('placeholder')) {
-                    el.setAttribute('placeholder', translations[lang][key]);
-                } else {
-                    el.innerHTML = translations[lang][key];
-                }
-            }
+/** Applies a language to every [data-i18n] node, <html lang>, the title and the meta description. */
+export function setupI18n(onChange) {
+    let lang = 'en';
+    try { lang = localStorage.getItem(STORE) === 'cn' ? 'cn' : 'en'; } catch (e) { /* storage blocked */ }
+
+    const apply = (next, notify) => {
+        lang = next;
+        const dict = translations[lang];
+        document.documentElement.lang = HTML_LANG[lang];
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+            const v = dict[el.dataset.i18n];
+            if (v !== undefined) el.textContent = v;
         });
-
-        // Update active dropdown text - this is dynamic
-        const switcherLabel = document.getElementById('lang-switcher-label');
-        if (switcherLabel) {
-            switcherLabel.innerText = lang === 'en' ? 'EN' : 'CN (简体)';
-            // Or simplified if design just wants "EN" or "CN"
-            switcherLabel.innerText = lang.toUpperCase();
-        }
+        document.querySelectorAll('[data-i18n-label]').forEach((el) => {
+            const v = dict[el.dataset.i18nLabel];
+            if (v !== undefined) el.setAttribute('aria-label', v);
+        });
+        document.title = dict['meta.title'];
+        const d = document.querySelector('meta[name="description"]');
+        if (d) d.setAttribute('content', dict['meta.desc']);
+        document.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+        if (notify && onChange) onChange(lang);
     };
 
-    window.setLanguage = (lang) => {
-        currentLang = lang;
-        localStorage.setItem('flowfi_lang', lang);
-        updateContent(lang);
-    };
+    document.querySelectorAll('[data-lang]').forEach((b) => b.addEventListener('click', () => {
+        if (b.dataset.lang === lang) return;
+        try { localStorage.setItem(STORE, b.dataset.lang); } catch (e) { /* ignore */ }
+        apply(b.dataset.lang, true);
+    }));
 
-    // Initial load
-    updateContent(currentLang);
+    if (lang !== 'en') apply(lang, false);
+    else document.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === 'en')));
 }

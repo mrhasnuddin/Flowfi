@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowFi | The Architecture of Governed Capital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body class="relative min-h-screen bg-[#FAF9FB] text-[#2E2F33]">
+
+    <!-- Sticky Navigation Header (Taiko Style with FlowFi Branding) -->
+    <header class="taiko-header">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 h-20 flex items-center justify-between">
+
+            <!-- Left: FlowFi Brand Wordmark & Icon -->
+            <a href="#hero" class="flex items-center gap-3 group select-none">
+                <img src="/assets/logo.png" alt="FlowFi Logo" class="w-8 h-8 rounded-lg shadow-sm" />
+                <span class="text-2xl font-display font-extrabold tracking-tight text-[#2E2F33] flex items-center gap-1.5">
+                    FLOW<span class="kinetic-barcode-glyph"><span></span><span></span><span></span><span></span><span></span></span>FI
+                </span>
+            </a>
+
+            <!-- Center: Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#architecture" class="taiko-nav-link" data-i18n="nav.architecture">Architecture</a>
+                <a href="#triad" class="taiko-nav-link" data-i18n="nav.triad">Consensus Triad</a>
+                <a href="#roadmap" class="taiko-nav-link" data-i18n="nav.roadmap">Roadmap</a>
+                <a href="https://flowfi.gitbook.io" target="_blank" rel="noopener noreferrer" class="taiko-nav-link" data-i18n="nav.docs">Whitepaper</a>
+            </nav>
+
+            <!-- Right: Systems Status, Language Switcher & Roll-Up CTA -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <!-- Systems Status Pill -->
+                <div class="hidden lg:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E6E8EE] shadow-sm text-xs font-semibold text-[#2E2F33] tabular-nums">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span data-i18n="nav.status">ENI Mainnet Operational</span>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="relative group">
+                    <button class="px-3.5 py-1.5 rounded-full bg-white border border-[#E6E8EE] text-xs font-bold text-[#2E2F33] hover:border-[#7B5CFA] transition-all shadow-sm active:scale-95">
+                        <span id="lang-switcher-label">EN</span>
+                    </button>
+                    <div class="absolute right-0 top-full mt-1.5 w-32 hidden group-hover:block bg-white rounded-xl shadow-lg border border-[#E6E8EE] overflow-hidden py-1 z-50">
+                        <button onclick="window.setLanguage('en')" class="w-full text-left px-4 py-2 text-xs font-semibold text-[#2E2F33] hover:bg-[#FAF9FB] hover:text-[#7B5CFA] transition-colors">
+                            EN (English)
+                        </button>
+                        <button onclick="window.setLanguage('cn')" class="w-full text-left px-4 py-2 text-xs font-semibold text-[#2E2F33] hover:bg-[#FAF9FB] hover:text-[#7B5CFA] transition-colors">
+                            CN (简体中文)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Taiko Signature Double-Text Roll-Up Button: Launch App -->
+                <a href="#simulator" class="tk-btn">
+                    <span class="tk-btn-text" data-i18n-rollup="nav.launch">
+                        <span>Launch App</span>
+                        <span>Launch App</span>
+                    </span>
+                    <span class="tk-btn-icon">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </span>
+                    </span>
+                </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-[#2E2F33]" aria-label="Toggle Navigation">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#FAF9FB] z-50 flex flex-col pt-24 px-8 gap-8 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex justify-between items-center pb-6 border-b border-[#E6E8EE]">
+            <span class="text-xl font-display font-bold text-[#2E2F33]">Navigation</span>
+            <button onclick="document.getElementById('mobile-menu').classList.add('translate-x-full')" class="p-2 text-xl font-bold">✕</button>
+        </div>
+        <div class="flex flex-col gap-6 text-2xl font-display font-bold">
+            <a href="#architecture" class="hover:text-[#7B5CFA] transition-colors" data-i18n="nav.architecture">Architecture</a>
+            <a href="#triad" class="hover:text-[#7B5CFA] transition-colors" data-i18n="nav.triad">Consensus Triad</a>
+            <a href="#roadmap" class="hover:text-[#7B5CFA] transition-colors" data-i18n="nav.roadmap">Roadmap</a>
+            <a href="https://flowfi.gitbook.io" target="_blank" class="hover:text-[#7B5CFA] transition-colors" data-i18n="nav.docs">Whitepaper</a>
+        </div>
+        <div class="mt-auto pb-12 flex flex-col gap-4">
+            <div class="flex gap-4">
+                <button onclick="window.setLanguage('en')" class="px-4 py-2 rounded-lg bg-white border border-[#E6E8EE] font-bold">EN</button>
+                <button onclick="window.setLanguage('cn')" class="px-4 py-2 rounded-lg bg-white border border-[#E6E8EE] font-bold">CN</button>
+            </div>
+            <a href="#simulator" class="tk-btn justify-center w-full py-2">
+                <span class="tk-btn-text" data-i18n-rollup="nav.launch">
+                    <span>Launch App</span>
+                    <span>Launch App</span>
+                </span>
+                <span class="tk-btn-icon">
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Section 1: Hero Section (Taiko Style, 3 Roll-Up Buttons, 3D Emblem, ZERO eyebrow tags) -->
+    <main id="hero" class="pt-16 pb-24 md:pb-32 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+            <!-- Left Column: Taiko-Style Typography & 3 Roll-Up Buttons -->
+            <div class="lg:col-span-7 space-y-8 animate-on-scroll">
+                <h1>
+                    <span class="text-[#7B5CFA] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight" data-i18n="hero.h1.brand">
+                        FlowFi
+                    </span>
+                    <span class="block mt-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold text-[#2E2F33] tracking-tight" data-i18n="hero.h1.tail">
+                        is Capital, Governed.
+                    </span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-[#5A5D64] leading-relaxed max-w-2xl font-normal" data-i18n="hero.desc">
+                    The decentralized consensus protocol engineered for sovereign capital formation, automated yield deployment, and institutional-grade on-chain governance.
+                </p>
+
+                <!-- 3 Signature Taiko Roll-Up Buttons -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <!-- Button 1: Solid Purple (Primary) -->
+                    <a href="#simulator" class="tk-btn">
+                        <span class="tk-btn-text" data-i18n-rollup="hero.cta.treasury">
+                            <span>Establish Treasury</span>
+                            <span>Establish Treasury</span>
+                        </span>
+                        <span class="tk-btn-icon">
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                        </span>
+                    </a>
+
+                    <!-- Button 2: Purple Outlined -->
+                    <a href="https://flowfi.gitbook.io" target="_blank" rel="noopener noreferrer" class="tk-btn tk-btn-outlined">
+                        <span class="tk-btn-text" data-i18n-rollup="hero.cta.whitepaper">
+                            <span>Read Whitepaper</span>
+                            <span>Read Whitepaper</span>
+                        </span>
+                        <span class="tk-btn-icon">
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                        </span>
+                    </a>
+
+                    <!-- Button 3: Gold Outlined -->
+                    <a href="#architecture" class="tk-btn tk-btn-gold">
+                        <span class="tk-btn-text" data-i18n-rollup="hero.cta.governance">
+                            <span>View Governance</span>
+                            <span>View Governance</span>
+                        </span>
+                        <span class="tk-btn-icon">
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Key Protocol Stats Row -->
+                <div class="grid grid-cols-3 gap-6 pt-6 border-t border-[#E6E8EE]/80 max-w-xl">
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-display font-extrabold text-[#7B5CFA] tabular-nums" data-i18n="hero.stat1.val">
+                            1.2B FF
+                        </div>
+                        <div class="text-xs sm:text-sm font-medium text-[#5A5D64] mt-1" data-i18n="hero.stat1.label">
+                            Consensus Locked
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-display font-extrabold text-[#2E2F33] tabular-nums" data-i18n="hero.stat2.val">
+                            $10M+
+                        </div>
+                        <div class="text-xs sm:text-sm font-medium text-[#5A5D64] mt-1" data-i18n="hero.stat2.label">
+                            Active Seed Capital
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-3xl font-display font-extrabold text-[#F2C94C] tabular-nums" data-i18n="hero.stat3.val">
+                            140%+
+                        </div>
+                        <div class="text-xs sm:text-sm font-medium text-[#5A5D64] mt-1" data-i18n="hero.stat3.label">
+                            Solvency Ratio
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive 3D Suspended FlowFi Emblem -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+                <div id="hero-3d-wrapper" class="hero-3d-wrapper relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] flex items-center justify-center select-none">
+                    <!-- Subtle Glow Backdrop -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#7B5CFA]/20 via-[#B9A9FF]/10 to-transparent rounded-full filter blur-3xl pointer-events-none"></div>
+
+                    <!-- 3D Suspended Emblem with Smooth Levitation & Mouse Tilt -->
+                    <div class="animate-levitate">
+                        <img id="hero-3d-img" src="/assets/logo 3d.png" alt="FlowFi 3D Emblem" class="hero-3d-img w-64 sm:w-80 h-auto object-contain cursor-grab active:cursor-grabbing" />
+                    </div>
+                </div>
+
+                <!-- Floating Consensus Badge -->
+                <div class="mt-4 inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/90 backdrop-blur border border-[#E6E8EE] shadow-sm text-xs font-semibold text-[#2E2F33] tabular-nums">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#7B5CFA] animate-pulse"></span>
+                    <span>Consensus Layer Active • Epoch 24,891</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Section 2: The Consensus Triad (Taiko Signature Section over Falling Dot-Matrix Canvas, ZERO eyebrow tags) -->
+    <section id="triad" class="relative py-28 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-[#E6E8EE]/70">
+        <!-- Falling Dot-Matrix Particle Canvas Background (Pure HTML5 Canvas) -->
+        <div class="matrix-canvas-wrapper">
+            <canvas id="matrix-canvas"></canvas>
+        </div>
+
+        <div class="max-w-[1440px] mx-auto relative z-10">
+            <!-- Section Header (NO eyebrow tag) -->
+            <div class="max-w-3xl mb-16 space-y-4 animate-on-scroll">
+                <h2 class="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-[#2E2F33]" data-i18n="triad.title">
+                    FlowFi is Autonomous.
+                </h2>
+                <p class="text-base sm:text-lg text-[#5A5D64] leading-relaxed" data-i18n="triad.desc">
+                    Three sovereign pillars unified to eliminate counterparty risk, custodial friction, and institutional governance paralysis.
+                </p>
+            </div>
+
+            <!-- 3 Taiko-Style Signature Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Card 1: Consensus Vault -->
+                <div class="taiko-card flex flex-col justify-between space-y-8 animate-on-scroll">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-[#2E2F33]" data-i18n="triad.c1.title">
+                            1 Consensus Vault
+                        </h3>
+                        <div class="text-3xl font-display font-bold text-[#7B5CFA] tabular-nums" data-i18n="triad.c1.metric">
+                            1,200,000,000 FF
+                        </div>
+                        <div class="text-sm font-semibold text-[#7B5CFA]" data-i18n="triad.c1.sub">
+                            Rule & Equilibrium
+                        </div>
+                        <p class="text-sm text-[#5A5D64] leading-relaxed" data-i18n="triad.c1.desc">
+                            Verifiable on-chain parameter control, arbitrated staking weights, and autonomous quorum enforcement without custodian exposure.
+                        </p>
+                    </div>
+
+                    <div>
+                        <a href="#architecture" class="tk-btn tk-btn-outlined w-full justify-between">
+                            <span class="tk-btn-text" data-i18n-rollup="triad.c1.cta">
+                                <span>Explore Governance</span>
+                                <span>Explore Governance</span>
+                            </span>
+                            <span class="tk-btn-icon">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Investor Treasury -->
+                <div class="taiko-card flex flex-col justify-between space-y-8 animate-on-scroll">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-[#2E2F33]" data-i18n="triad.c2.title">
+                            1 Investor Treasury
+                        </h3>
+                        <div class="text-3xl font-display font-bold text-[#E85D3A] tabular-nums" data-i18n="triad.c2.metric">
+                            $10,000,000+
+                        </div>
+                        <div class="text-sm font-semibold text-[#E85D3A]" data-i18n="triad.c2.sub">
+                            Execution & Growth
+                        </div>
+                        <p class="text-sm text-[#5A5D64] leading-relaxed" data-i18n="triad.c2.desc">
+                            Algorithmic capital deployment, strategic ecosystem grants, and direct revenue backflow compounding protocol reserves.
+                        </p>
+                    </div>
+
+                    <div>
+                        <a href="#simulator" class="tk-btn tk-btn-outlined w-full justify-between">
+                            <span class="tk-btn-text" data-i18n-rollup="triad.c2.cta">
+                                <span>View Treasury</span>
+                                <span>View Treasury</span>
+                            </span>
+                            <span class="tk-btn-icon">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Deflationary Tokenomics -->
+                <div class="taiko-card flex flex-col justify-between space-y-8 animate-on-scroll">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-[#2E2F33]" data-i18n="triad.c3.title">
+                            1 Deflationary Tokenomics
+                        </h3>
+                        <div class="text-3xl font-display font-bold text-[#D4A72C] tabular-nums" data-i18n="triad.c3.metric">
+                            1,000,000,000 FF
+                        </div>
+                        <div class="text-sm font-semibold text-[#D4A72C]" data-i18n="triad.c3.sub">
+                            Capped Permanence
+                        </div>
+                        <p class="text-sm text-[#5A5D64] leading-relaxed" data-i18n="triad.c3.desc">
+                            Strict 1 Billion FF hard cap with 100% fair launch Black Hole distribution. Zero VC discounts, zero algorithmic inflation.
+                        </p>
+                    </div>
+                        </p>
+                    </div>
+
+                    <div>
+                        <a href="https://flowfi.gitbook.io" target="_blank" rel="noopener noreferrer" class="tk-btn tk-btn-gold w-full justify-between">
+                            <span class="tk-btn-text" data-i18n-rollup="triad.c3.cta">
+                                <span>Read Tokenomics</span>
+                                <span>Read Tokenomics</span>
+                            </span>
+                            <span class="tk-btn-icon">
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Product Architecture / Technical Schematic (ZERO eyebrow tags) -->
+    <section id="architecture" class="py-28 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto border-t border-[#E6E8EE]/70">
+        <div class="max-w-3xl mb-16 space-y-4 animate-on-scroll">
+            <h2 class="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-[#2E2F33]" data-i18n="arch.title">
+                Rule & Consensus meets Execution & Growth.
+            </h2>
+            <p class="text-base sm:text-lg text-[#5A5D64] leading-relaxed" data-i18n="arch.desc">
+                A structural separation of powers. By decoupling governance consensus from aggressive capital deployment, FlowFi solves the central trade-off of decentralized finance.
+            </p>
+        </div>
+
+        <!-- Technical Schematic Interactive Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <!-- Left Box: Consensus Vault -->
+            <div class="lg:col-span-4 p-8 rounded-3xl bg-white border border-[#E6E8EE] shadow-sm hover:border-[#7B5CFA]/50 transition-all space-y-6 animate-on-scroll">
+                <div>
+                    <h3 class="text-2xl font-display font-bold text-[#2E2F33]" data-i18n="arch.vault1.title">
+                        Consensus Vault
+                    </h3>
+                    <div class="text-xs font-semibold text-[#7B5CFA] mt-1" data-i18n="arch.vault1.role">
+                        Rule & Arbitration
+                    </div>
+                </div>
+                <p class="text-sm text-[#5A5D64] leading-relaxed" data-i18n="arch.vault1.desc">
+                    Maintains protocol equilibrium, emergency freezes, parameter arbitration, and stake-weighted voting quorum.
+                </p>
+                <div class="p-4 rounded-2xl bg-[#F5F2FF] border border-[#B9A9FF]/30">
+                    <div class="text-xs text-[#5A5D64] font-medium">Staked Governance Reserves</div>
+                    <div class="text-xl font-display font-extrabold text-[#7B5CFA] tabular-nums mt-0.5" data-i18n="arch.vault1.metric">
+                        1,200,000,000 FF Locked
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Box: Autonomous Routing Engine -->
+            <div class="lg:col-span-4 p-8 rounded-3xl bg-gradient-to-b from-[#2E2F33] to-[#1E1F23] text-white shadow-xl space-y-6 relative overflow-hidden animate-on-scroll">
+                <div class="absolute -right-8 -top-8 w-32 h-32 bg-[#7B5CFA]/30 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div>
+                    <h3 class="text-2xl font-display font-bold text-white" data-i18n="arch.engine.title">
+                        Autonomous Routing Engine
+                    </h3>
+                    <div class="text-xs font-semibold text-[#B9A9FF] mt-1">
+                        Smart Contract Layer
+                    </div>
+                </div>
+
+                <p class="text-sm text-gray-300 leading-relaxed" data-i18n="arch.engine.desc">
+                    Smart contracts continuously execute yield harvesting, risk rebalancing, and algorithmic reserve buybacks.
+                </p>
+
+                <!-- Flow Vectors -->
+                <div class="flex items-center justify-between pt-2 text-xs font-semibold text-[#B9A9FF]">
+                    <div class="flex items-center gap-1.5">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <span>Quorum Bounds</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <span>Revenue Backflow</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Box: Investor Treasury -->
+            <div class="lg:col-span-4 p-8 rounded-3xl bg-white border border-[#E6E8EE] shadow-sm hover:border-[#E85D3A]/50 transition-all space-y-6 animate-on-scroll">
+                <div>
+                    <h3 class="text-2xl font-display font-bold text-[#2E2F33]" data-i18n="arch.vault2.title">
+                        Investor Treasury
+                    </h3>
+                    <div class="text-xs font-semibold text-[#E85D3A] mt-1" data-i18n="arch.vault2.role">
+                        Execution & Yield
+                    </div>
+                </div>
+                <p class="text-sm text-[#5A5D64] leading-relaxed" data-i18n="arch.vault2.desc">
+                    Allocates seed liquidity to audited Web3 protocols, ecosystem builder grants, and verified yield strategies.
+                </p>
+                <div class="p-4 rounded-2xl bg-orange-50 border border-orange-200">
+                    <div class="text-xs text-[#5A5D64] font-medium">Active Deployment Pool</div>
+                    <div class="text-xl font-display font-extrabold text-[#E85D3A] tabular-nums mt-0.5" data-i18n="arch.vault2.metric">
+                        $10,000,000+ Deployed
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 4: Taiko Signature High-Contrast Manifesto Statement (ZERO eyebrow tags) -->
+    <section class="py-28 px-6 md:px-12 lg:px-20 border-t border-[#E6E8EE]/70 bg-white">
+        <div class="max-w-4xl mx-auto text-center space-y-8 animate-on-scroll">
+            <blockquote class="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold text-[#2E2F33] leading-[1.15] tracking-tight" data-i18n="manifesto.quote">
+                "We envision a sovereign, audited, autonomous, and unstoppably governed capital ecosystem."
+            </blockquote>
+            <div class="inline-flex items-center gap-3">
+                <span class="w-8 h-[2px] bg-[#7B5CFA]"></span>
+                <cite class="not-italic text-sm font-bold uppercase tracking-widest text-[#7B5CFA]" data-i18n="manifesto.author">
+                    FlowFi Architecture Council
+                </cite>
+                <span class="w-8 h-[2px] bg-[#7B5CFA]"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: System Roadmap (Taiko Quarterly Milestones, ZERO eyebrow tags) -->
+    <section id="roadmap" class="py-28 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto border-t border-[#E6E8EE]/70">
+        <div class="max-w-3xl mb-16 space-y-4 animate-on-scroll">
+            <h2 class="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-[#2E2F33]" data-i18n="road.title">
+                The systemic transition to ENI Mainnet.
+            </h2>
+            <p class="text-base sm:text-lg text-[#5A5D64] leading-relaxed" data-i18n="road.desc">
+                FlowFi's roadmap is not driven by market sentiment. It is an engineering blueprint for migrating on-chain capital to the ENI Mainnet.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Q1 Milestone -->
+            <div class="taiko-card space-y-6 animate-on-scroll">
+                <div class="flex items-center justify-between">
+                    <span class="text-lg font-display font-extrabold text-[#7B5CFA] tabular-nums" data-i18n="road.q1.quarter">
+                        Q1 2026
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span data-i18n="road.q1.status">Active</span>
+                    </span>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-[#2E2F33]" data-i18n="road.q1.title">
+                    Genesis Governance
+                </h3>
+                <p class="text-sm text-[#5A5D64] leading-relaxed" data-i18n="road.q1.desc">
+                    Black Hole Launch completion, dual-vault consensus activation, and formal Certik security verification.
+                </p>
+            </div>
+
+            <!-- Q2 Milestone -->
+            <div class="taiko-card space-y-6 animate-on-scroll">
+                <div class="flex items-center justify-between">
+                    <span class="text-lg font-display font-extrabold text-[#E85D3A] tabular-nums" data-i18n="road.q2.quarter">
+                        Q2 2026
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-600 text-xs font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                        <span data-i18n="road.q2.status">In Progress</span>
+                    </span>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-[#2E2F33]" data-i18n="road.q2.title">
+                    Backflow Optimization
+                </h3>
+                <p class="text-sm text-[#5A5D64] leading-relaxed" data-i18n="road.q2.desc">
+                    Automated revenue routing integration and multi-strategy investor treasury execution pools.
+                </p>
+            </div>
+
+            <!-- Q3 Milestone -->
+            <div class="taiko-card space-y-6 animate-on-scroll">
+                <div class="flex items-center justify-between">
+                    <span class="text-lg font-display font-extrabold text-[#5A5D64] tabular-nums" data-i18n="road.q3.quarter">
+                        Q3 2026
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 text-gray-500 text-xs font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                        <span data-i18n="road.q3.status">Planned</span>
+                    </span>
+                </div>
+                <h3 class="text-2xl font-display font-bold text-[#2E2F33]" data-i18n="road.q3.title">
+                    Enterprise Mainnet
+                </h3>
+                <p class="text-sm text-[#5A5D64] leading-relaxed" data-i18n="road.q3.desc">
+                    Standardized vault templates for institutional asset migration to the ENI Mainnet.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 6: Institutional Standard & Interactive Yield Simulator (ZERO eyebrow tags) -->
+    <section id="simulator" class="py-28 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto border-t border-[#E6E8EE]/70">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+            <!-- Left: Simulator Widget -->
+            <div class="lg:col-span-7 p-8 sm:p-12 rounded-3xl bg-white border border-[#E6E8EE] shadow-md space-y-8 animate-on-scroll">
+                <div class="space-y-2">
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-[#2E2F33]" data-i18n="sim.title">
+                        Calculate your treasury's productive yield.
+                    </h2>
+                    <p class="text-sm sm:text-base text-[#5A5D64]" data-i18n="sim.desc">
+                        Estimate autonomous backflow generation and governance weight when migrating capital to FlowFi.
+                    </p>
+                </div>
+
+                <!-- Interactive Slider -->
+                <div class="space-y-4 pt-2">
+                    <div class="flex justify-between items-center text-sm font-bold">
+                        <span class="text-[#5A5D64]" data-i18n="sim.label.size">Select Treasury Size</span>
+                        <span id="sim-treasury-val" class="text-2xl font-display text-[#7B5CFA] tabular-nums">$5.0M</span>
+                    </div>
+                    <input id="treasury-slider" type="range" min="200000" max="50000000" step="200000" value="5000000" aria-label="Treasury Size Slider" />
+                    <div class="flex justify-between text-xs text-[#8E929B] font-medium tabular-nums">
+                        <span>$200k</span>
+                        <span>$10M</span>
+                        <span>$25M</span>
+                        <span>$50M</span>
+                    </div>
+                </div>
+
+                <!-- Calculated Output Displays -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#E6E8EE]">
+                    <div class="p-5 rounded-2xl bg-[#FAF9FB] border border-[#E6E8EE]">
+                        <div class="text-xs font-medium text-[#8E929B] mb-1" data-i18n="sim.label.yield">
+                            Estimated Annual Backflow
+                        </div>
+                        <div id="sim-yield-val" class="text-2xl sm:text-3xl font-display font-bold text-[#2E2F33] tabular-nums">
+                            $420k / yr
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-[#FAF9FB] border border-[#E6E8EE]">
+                        <div class="text-xs font-medium text-[#8E929B] mb-1" data-i18n="sim.label.power">
+                            Consensus Voting Power
+                        </div>
+                        <div id="sim-power-val" class="text-2xl sm:text-3xl font-display font-bold text-[#7B5CFA] tabular-nums">
+                            7,250 Votes
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="#hero" class="tk-btn w-full justify-center py-2.5">
+                        <span class="tk-btn-text" data-i18n-rollup="cta.btn.treasury">
+                            <span>Establish Treasury</span>
+                            <span>Establish Treasury</span>
+                        </span>
+                        <span class="tk-btn-icon">
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Trust Badges & Partner Network -->
+            <div class="lg:col-span-5 space-y-8 animate-on-scroll">
+                <div class="space-y-4">
+                    <h3 class="text-2xl sm:text-3xl font-display font-bold text-[#2E2F33]" data-i18n="sim.trust.title">
+                        Institutional security, verified on-chain.
+                    </h3>
+                    <p class="text-sm sm:text-base text-[#5A5D64] leading-relaxed" data-i18n="sim.trust.desc">
+                        Every vault contract is formally verified and continuously stress-tested against cross-contract reentrancy, oracle divergence, and economic exploits.
+                    </p>
+                </div>
+
+                <!-- Audit & Partner Pills -->
+                <div class="flex flex-wrap gap-4">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white border border-[#E6E8EE] shadow-sm text-sm font-bold text-[#2E2F33]">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B5CFA" stroke-width="2.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span data-i18n="sim.audit">Certik Audited</span>
+                    </div>
+
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white border border-[#E6E8EE] shadow-sm text-sm font-bold text-[#2E2F33]">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E85D3A" stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span data-i18n="sim.partner">Bitget Wallet Partner</span>
+                    </div>
+                </div>
+
+                <!-- Strategic Partner Badges with Official Logos -->
+                <div class="pt-4 border-t border-[#E6E8EE]">
+                    <h4 class="text-sm font-bold text-[#2E2F33] mb-4" data-i18n="sim.partners.title">
+                        Ecosystem Infrastructure Partners
+                    </h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 items-center">
+                        <div class="p-3.5 rounded-xl bg-white border border-[#E6E8EE] flex items-center justify-center shadow-sm h-14">
+                            <img src="/assets/partners/ENI C 3.png" alt="ENI Mainnet" class="max-h-7 max-w-[80%] object-contain" />
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white border border-[#E6E8EE] flex items-center justify-center shadow-sm h-14">
+                            <img src="/assets/partners/Debox C 3.png" alt="Debox" class="max-h-7 max-w-[80%] object-contain" />
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white border border-[#E6E8EE] flex items-center justify-center shadow-sm h-14">
+                            <img src="/assets/partners/DAOaaS C 3.png" alt="DAOaaS" class="max-h-7 max-w-[80%] object-contain" />
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-white border border-[#E6E8EE] flex items-center justify-center shadow-sm h-14">
+                            <img src="/assets/partners/aseanlabs b.png" alt="AseanLabs" class="max-h-7 max-w-[80%] object-contain" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 7: Final Conversion Call-To-Action (Taiko Style, ZERO eyebrow tags) -->
+    <section class="py-28 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto border-t border-[#E6E8EE]/70 text-center">
+        <div class="max-w-3xl mx-auto space-y-8 animate-on-scroll">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight text-[#2E2F33]" data-i18n="cta.title">
+                Ready to govern sovereign capital?
+            </h2>
+            <p class="text-lg sm:text-xl text-[#5A5D64] leading-relaxed max-w-xl mx-auto" data-i18n="cta.desc">
+                Deploy your organization's assets into audited dual-vault infrastructure.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                <a href="#simulator" class="tk-btn">
+                    <span class="tk-btn-text" data-i18n-rollup="cta.btn.treasury">
+                        <span>Establish Treasury</span>
+                        <span>Establish Treasury</span>
+                    </span>
+                    <span class="tk-btn-icon">
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </span>
+                </a>
+                <a href="https://flowfi.gitbook.io" target="_blank" rel="noopener noreferrer" class="tk-btn tk-btn-outlined">
+                    <span class="tk-btn-text" data-i18n-rollup="cta.btn.docs">
+                        <span>Read Whitepaper</span>
+                        <span>Read Whitepaper</span>
+                    </span>
+                    <span class="tk-btn-icon">
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Taiko Console Style with FlowFi Branding) -->
+    <footer class="py-16 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto border-t border-[#E6E8EE] text-sm text-[#5A5D64]">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <img src="/assets/logo.png" alt="FlowFi Logo" class="w-6 h-6 rounded" />
+                <span class="text-xl font-display font-extrabold tracking-tight text-[#2E2F33]">FLOWFI</span>
+                <span class="text-xs text-[#8E929B] pl-3 border-l border-[#E6E8EE]" data-i18n="footer.desc">
+                    Decentralized infrastructure for the institutional management of on-chain capital.
+                </span>
+            </div>
+
+            <div class="flex flex-wrap gap-6 text-xs font-semibold">
+                <a href="#architecture" class="hover:text-[#7B5CFA] transition-colors" data-i18n="nav.architecture">Architecture</a>
+                <a href="#triad" class="hover:text-[#7B5CFA] transition-colors" data-i18n="nav.triad">Consensus Triad</a>
+                <a href="#roadmap" class="hover:text-[#7B5CFA] transition-colors" data-i18n="nav.roadmap">Roadmap</a>
+                <a href="https://flowfi.gitbook.io" target="_blank" class="hover:text-[#7B5CFA] transition-colors" data-i18n="nav.docs">Whitepaper</a>
+            </div>
+
+            <div class="text-xs text-[#8E929B] tabular-nums" data-i18n="footer.copy">
+                © 2026 FlowFi Foundation. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Entry Script -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

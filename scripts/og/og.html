@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FlowFi share image</title>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+<style>
+/* Open as og.html#landscape (1200x630) or og.html#square (1200x1200). scripts/make-og.cjs renders both to public/og/. */
+:root { --canvas: #F8F9FB; --ink: #2E2F33; --mid: #5A5E66; --purple: #7B5CFA; --lav: #B9A9FF; }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1200px; background: var(--canvas); font-family: "Public Sans", system-ui, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+.card { position: relative; width: 1200px; overflow: hidden; background-color: var(--canvas);
+  background-image: radial-gradient(circle, rgba(46,47,51,.16) 1.4px, transparent 1.8px), radial-gradient(70% 90% at 85% 110%, rgba(185,169,255,.28), transparent 70%);
+  background-size: 48px 48px, 100% 100%; background-position: 24px 24px, 0 0; }
+.logo { position: absolute; left: 72px; top: 64px; height: 46px; }
+h1 { font-family: "Clash Display", system-ui, sans-serif; font-weight: 500; letter-spacing: -0.02em; line-height: 0.9; }
+.sub { color: var(--mid); line-height: 1.4; }
+.frame { position: absolute; }
+.frame i { position: absolute; width: 28px; height: 28px; border: 0 solid var(--purple); }
+.frame i:nth-child(1) { top: 0; left: 0; border-width: 2px 0 0 2px; } .frame i:nth-child(2) { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.frame i:nth-child(3) { bottom: 0; left: 0; border-width: 0 0 2px 2px; } .frame i:nth-child(4) { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+.frame img { position: absolute; inset: 0; margin: auto; width: 64%; height: auto; }
+
+body.landscape .card { height: 630px; }
+body.landscape h1 { position: absolute; left: 72px; top: 150px; font-size: 84px; width: 660px; }
+body.landscape .sub { position: absolute; left: 72px; top: 352px; width: 540px; font-size: 28px; }
+body.landscape .frame { right: 100px; top: 135px; width: 360px; height: 360px; }
+
+body.square .card { height: 1200px; }
+body.square .logo { left: 50%; transform: translateX(-50%); top: 80px; height: 56px; }
+body.square .frame { left: 50%; top: 200px; width: 520px; height: 520px; transform: translateX(-50%); }
+body.square h1 { position: absolute; left: 0; right: 0; top: 790px; text-align: center; font-size: 104px; }
+body.square .sub { position: absolute; left: 50%; transform: translateX(-50%); top: 1030px; width: 820px; text-align: center; font-size: 34px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <img class="logo" src="../../public/assets/brand/flowfi-logo.svg" alt="FlowFi">
+  <h1>FlowFi is Capital, Governed.</h1>
+  <p class="sub">Decentralized infrastructure for the institutional management of on-chain capital.</p>
+  <div class="frame"><i></i><i></i><i></i><i></i><img src="../../public/assets/logo-3d.webp" alt=""></div>
+</div>
+<script>document.body.className = location.hash.slice(1) || 'landscape';</script>
+</body>
+</html>
